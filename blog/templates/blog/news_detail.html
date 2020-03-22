@@ -1,0 +1,47 @@
+{%extends 'blog/main.html'%}
+{% block main_section%}
+
+<div class="alert alert-light">
+  <a href="{% url 'blog-home' %}"><button type="submit" class="btn btn-outline-warning btn-lg btn-block">Назад</button></a>
+  <h1>{{object.title}}</h1>
+  <p>{{object.text|safe}}</p>
+  <div class="row">
+    <div>
+      {% if object.author.profile.img %}
+        <img src="{{object.author.profile.img.url}}" alt="{{object.author}}" class="user_image">
+      {% else %}
+        <img src="/pictures/default.jpg" alt="{{object.author}}" class="user_image">
+      {% endif %}
+    </div>
+    <div class="mt-2">
+      <span class="text-muted"><b>Дата: </b>{{object.date|date:"d E Y в H:i:s"}}</span>
+      <p><b>Автор:</b><a href="{% url 'user-news' object.author%}">{{object.author}}</a></p>
+
+    </div>
+  </div>
+  {%if object.author == user%}
+    <a href="{%url 'news-update' object.id %}"class="btn btn-info">Обновить пост</a>
+    <a href="{%url 'news-delete' object.id %}"class="btn btn-danger">Удалить пост</a>
+  {%endif%}
+</div>
+
+{%endblock main_section%}
+
+
+{% block aside_news_section%}
+<h3><b class="whiter">Коты</b></h3>
+<img src="https://bit.ua/wp-content/uploads/2019/05/kytsya.jpg" class="img-thumbnail mb-1">
+<p class="whiter">Лучшая видео-подборка с смешных видео с котами, перейти к просмотру нажав по ссылке...</p>
+<a href="https://www.youtube.com/watch?v=nabQPIl8qyI" target="_blank">
+  <button class="btn btn-warning">Посмотреть</button>
+</a>
+{% endblock aside_news_section%}
+
+{% block aside_news_section-2 %}
+<h3><b class="whiter">PariMatch</b></h3>
+<img src="https://static.ukrinform.com/photos/2019_02/thumb_files/630_360_1549449888-517.jpg" class="img-thumbnail mb-1">
+<p class="whiter">В рамках кампании по ребрендингу Parimatch подтвердил подписание контракта с международным чемпионом UFC Конором МакГрегором, который не боится смелых вызовов и всегда заряжен побеждать.</p>
+<a href="https://www.parimatch.com/portal/parimatch-news/9363-konor-makgregor-novyi-brend-ambassador-parimatch.html" target="_blank">
+  <button class="btn btn-warning">Посмотреть</button>
+</a>
+{%endblock aside_news_section-2%}

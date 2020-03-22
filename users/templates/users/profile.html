@@ -1,0 +1,31 @@
+{% extends 'blog/main.html' %}
+{% load crispy_forms_tags %}
+{% block main_section%}
+<div class="form-section">
+  <h2> Профиль пользователя {{user.username}} </h2>
+    <div class="media text-muted pt-3">
+        <img class="mr-2 rounded" style="width: 64px; height: 64px;" src="{{user.profile.img.url}}">
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+          <strong class="d-block text-gray-dark">@{{user.username}}</strong>
+          <b>Email: {{user.email}}</b>
+        </p>
+      </div>
+      <h3 class="mt-4">Редактировать профиль</h3>
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ update_user|crispy }}
+        {{ img_profile }}
+        <button type="submit" class="btn btn-outline-warning">Обновить данные</button>
+      </form>
+</div>
+{%endblock main_section%}
+
+{%block aside_news_section%}
+<h3><b class="whiter">5 Лучших игровых движков для создания игр</b></h3>
+<img src="https://i.pinimg.com/originals/43/8e/33/438e338ffe5441ab8461844aee503df7.jpg" class="img-thumbnail mb-1">
+<p class="whiter">С развитием сферы игростроения появилось огромное множество всевозможных движков. Выбрать подходящий бывает
+  очень не просто. Мы расскажем Вам про 5 лучших игровых движков для создания игр всех тематик.</p>
+<a href="https://www.youtube.com/watch?v=6AQ11c4cJdw" target="_blank">
+  <button class="btn btn-warning">Посмотреть</button>
+</a>
+{%endblock aside_news_section%}

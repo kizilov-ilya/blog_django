@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap');
+
+body {
+  background-image:url('fancy-pants.jpg');
+}
+.alert-light {
+  border-color: #bfbfbf;
+}
+.form-section{
+  background: #fff;
+  padding: 20px;
+  border: 1px solid silver;
+  box-sizing: border-box;
+  width: 100%;
+  -webkit-box-shadow: 0 2px 3px 0 rgba(74,74,74,.21);
+  -moz-box-shadow: 0 2px 3px 0 rgba(74,74,74,.21);
+  box-shadow: : 0 2px 3px 0 rgba(74,74,74,.21);
+}
+
+.form-section > h2{
+  color: #b38a22;
+  margin-bottom: 10px;
+}
+
+.letter{
+  color: #FF0000 !important;
+}
+
+.logo{
+  font-family: 'Baloo Bhai', cursive;
+  font-size: 30px;
+}
+
+.navbar{
+
+}
+
+.user_image{
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin-right: 15px;
+  margin-left: 20px;
+
+}
+
+.whiter{
+  color: #fefefe;
+}
+
+footer{
+  padding: 30px;
+  background: #333a41
+  color: #f1efef;
+  float: left;
+  width: 100%;
+}
+
+footer a{color: #788c9e}
+footer a:hover{color: #79b0e2}

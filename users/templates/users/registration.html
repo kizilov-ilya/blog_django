@@ -1,0 +1,24 @@
+{%extends 'blog/main.html'%}
+{% load crispy_forms_tags %}
+{% block main_section%}
+<div class="form-section">
+  <h2>Регистрация на сайте</h2>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-outline-warning">Зарегистрироваться</button>
+  </form>
+  <hr>
+  Уже зарегистрированы? <a href="{% url 'user' %}">Войти в личный кабинет</a>
+</div>
+{%endblock main_section%}
+
+{%block aside_news_section%}
+<h3><b class="whiter">5 Лучших игровых движков для создания игр</b></h3>
+<img src="https://i.pinimg.com/originals/43/8e/33/438e338ffe5441ab8461844aee503df7.jpg" class="img-thumbnail mb-1">
+<p class="whiter">С развитием сферы игростроения появилось огромное множество всевозможных движков. Выбрать подходящий бывает
+  очень не просто. Мы расскажем Вам про 5 лучших игровых движков для создания игр всех тематик.</p>
+<a href="https://www.youtube.com/watch?v=6AQ11c4cJdw" target="_blank">
+  <button class="btn btn-warning">Посмотреть</button>
+</a>
+{%endblock aside_news_section%}

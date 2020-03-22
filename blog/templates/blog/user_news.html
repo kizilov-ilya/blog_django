@@ -1,0 +1,65 @@
+{%extends 'blog/main.html'%}
+{% block main_section%}
+  <h2 class="whiter">Все статьи от автора {{view.kwargs.username}} </h2>
+  <h4 class="whiter">Количество: {{page_obj.paginator.count}}</h4>
+{% for post in news %}
+<div class="alert alert-light">
+  <h1>{{post.title}}</h1>
+  <p>{{post.text|striptags|truncatechars:200}}</p>
+  <div class="row">
+    <div>
+      {% if post.author.profile.img %}
+        <img src="{{post.author.profile.img.url}}" alt="{{post.author}}" class="user_image">
+      {% else %}
+        <img src="/pictures/default.jpg" alt="{{post.author}}" class="user_image">
+      {% endif %}
+    </div>
+    <div class="mt-2">
+      <span class="text-muted"><b>Дата: </b>{{post.date|date:"d E Y в H:i:s"}}</span>
+      <p><b>Автор:</b><a href="{% url 'user-news' post.author%}">{{post.author}}</a></p>
+    </div>
+  </div>
+  <a href="{% url 'news-detail' post.id %}" class="btn btn-outline-warning">Читать далее</a>
+</div>
+{% endfor %}
+
+  {% if is_paginated %}
+    {% if page_obj.has_previous %}
+      <a href="?page=1" class="btn btn-outline-warning">Начало</a>
+      <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-outline-warning">Предыдущая</a>
+    {% endif %}
+
+    {% for num in page_obj.paginator.page_range %}
+      {% if num == page_obj.number %}
+        <button class="btn btn-warning">{{num}}</button>
+      {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+        <a href="?page={{ num }}" class="btn btn-outline-warning">{{num}}</a>
+      {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+      <a href="?page={{page_obj.next_page_number}}" class="btn btn-outline-warning">Следующая</a>
+      <a href="?page={{page_obj.paginator.num_pages}}" class="btn btn-outline-warning">Последняя</a>
+    {% endif %}
+  {% endif %}
+
+{% endblock main_section %}
+
+
+{% block aside_news_section%}
+<h3><b class="whiter">Коты</b></h3>
+<img src="https://bit.ua/wp-content/uploads/2019/05/kytsya.jpg" class="img-thumbnail mb-1">
+<p class="whiter">Лучшая видео-подборка с смешных видео с котами, перейти к просмотру нажав по ссылке...</p>
+<a href="https://www.youtube.com/watch?v=nabQPIl8qyI" target="_blank">
+  <button class="btn btn-warning">Посмотреть</button>
+</a>
+{% endblock aside_news_section%}
+
+{% block aside_news_section-2 %}
+<h3><b class="whiter">PariMatch</b></h3>
+<img src="https://static.ukrinform.com/photos/2019_02/thumb_files/630_360_1549449888-517.jpg" class="img-thumbnail mb-1">
+<p class="whiter">В рамках кампании по ребрендингу Parimatch подтвердил подписание контракта с международным чемпионом UFC Конором МакГрегором, который не боится смелых вызовов и всегда заряжен побеждать.</p>
+<a href="https://www.parimatch.com/portal/parimatch-news/9363-konor-makgregor-novyi-brend-ambassador-parimatch.html" target="_blank">
+  <button class="btn btn-warning">Посмотреть</button>
+</a>
+{%endblock aside_news_section-2%}
