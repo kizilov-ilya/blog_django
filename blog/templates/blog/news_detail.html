@@ -20,8 +20,8 @@
     </div>
   </div>
   {%if object.author == user%}
-    <a href="{%url 'news-update' object.id %}"class="btn btn-info">Обновить пост</a>
-    <a href="{%url 'news-delete' object.id %}"class="btn btn-danger">Удалить пост</a>
+    <a href="{% url 'news-update' object.id %}"class="btn btn-info">Обновить пост</a>
+    <a href="{% url 'news-delete' object.id %}"class="btn btn-danger">Удалить пост</a>
   {%endif%}
 </div>
 

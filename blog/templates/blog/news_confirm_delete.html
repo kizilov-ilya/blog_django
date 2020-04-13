@@ -6,7 +6,7 @@
   <form method="POST">
     {% csrf_token %}
     <button type="submit" class="btn btn-outline-danger">Да, удалить</button>
-    <a href="{% url 'news-detail' object.id %}"><button type="submit" class="btn btn-outline-warning">Нет, отмена</button></a>
+    <a href="{% url 'news-detail' object.id %}"><button type="button" class="btn btn-outline-warning">Нет, отмена</button></a>
   </form>
 </div>
 {%endblock main_section%}
