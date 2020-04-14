@@ -1,5 +1,5 @@
 
-async-timeout==3.0.1
+
 attrs==19.3.0
 Babel==2.8.0
 beautifulsoup4==4.8.2
@@ -18,11 +18,9 @@ idna==2.9
 jdcal==1.4.1
 kiwisolver==1.1.0
 lxml==4.5.0
-matplotlib==3.1.1
+
 multidict==4.7.5
 mysql-connector-python==8.0.19
-
-
 
 Pillow==7.0.0
 protobuf==3.6.1
