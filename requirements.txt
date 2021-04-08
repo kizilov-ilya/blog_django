@@ -8,7 +8,7 @@ cffi==1.14.0
 chardet==3.0.4
 cryptography==2.8
 cycler==0.10.0
-Django==2.2.4
+Django==2.2.20
 django-crispy-forms==1.8.1
 dnspython==1.16.0
 emoji==0.5.4
